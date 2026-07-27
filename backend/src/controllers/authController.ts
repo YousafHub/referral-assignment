@@ -111,16 +111,7 @@ export const register = asyncHandler(async (req: Request, res: Response) => {
   });
   
   return res.status(201).json(
-    new ApiResponse(201, {
-      user: {
-        id: result.id,
-        email: result.email,
-        name: result.name,
-        referralCode: result.referralCode,
-        points: result.points
-      },
-      token
-    }, 'User registered successfully')
+    new ApiResponse(201, {}, 'User registered successfully')
   );
 });
 
@@ -168,16 +159,7 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
   });
   
   return res.status(200).json(
-    new ApiResponse(200, {
-      user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        referralCode: user.referralCode,
-        points: user.points
-      },
-      token
-    }, 'Login successful')
+    new ApiResponse(200, {}, 'Login successful')
   );
 });
 
@@ -205,7 +187,7 @@ export const getMe = asyncHandler(async (req: Request, res: Response) => {
   }
   
   return res.status(200).json(
-    new ApiResponse(200, { user }, 'User data fetched successfully')
+    new ApiResponse(200, {}, 'User data fetched successfully')
   );
 });
 
